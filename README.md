@@ -1,1 +1,1 @@
-# oc-simple-app
+# OpenShift-app
