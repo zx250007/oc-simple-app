@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: List
 items:
-- apiVersion: apps.openshift.io/v1
-  kind: DeploymentConfiggg
+
+  kind: DeploymentConfig
   metadata:
     labels:
       app: oc-simple-app
