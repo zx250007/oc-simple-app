@@ -1,4 +1,33 @@
-
+apiVersion: v1
+kind: List
+items:
+- apiVersion: apps.openshift.io/v1
+  kind: DeploymentConfig
+  metadata:
+    labels:
+      app: oc-simple-app
+      app.kubernetes.io/component: oc-simple-app
+      app.kubernetes.io/instance: oc-simple-app
+    name: oc-simple-app
+  spec:
+    replicas: 3
+    revisionHistoryLimit: 10
+    selector:
+      deploymentconfig: oc-simple-app
+    template:
+      metadata:
+        labels:
+          deploymentconfig: oc-simple-app
+      spec:
+        containers:
+        - image: oc-simple-app
+          imagePullPolicy: Always
+          name: oc-simple-app
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          - containerPort: 8443
+            protocol: TCP
     test: false
     triggers:
     - type: ConfigChange
